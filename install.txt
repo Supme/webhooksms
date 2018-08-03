@@ -1,0 +1,13 @@
+sudo useradd --no-create-home --shell /bin/false webhooksms
+sudo cp webhooksms /usr/local/bin/
+sudo chown webhooksms: /usr/local/bin/webhooksms
+sudo mkdir /var/log/webhooksms
+sudo chown webhooksms: /var/log/webhooksms
+sudo mkdir /etc/webhooksms
+sudo cp config.ini.example /etc/webhooksms/config.ini
+sudo chown -R webhooksms: /etc/webhooksms
+...edit config.ini
+sudo cp webhooksms.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable webhooksms
+sudo systemctl start webhooksms

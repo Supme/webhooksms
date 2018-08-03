@@ -1,0 +1,15 @@
+[Unit]
+Description=Webhook SMS sender alerts from Grafana, Prometheus and etc
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=webhooksms
+Group=webhooksms
+Type=simple
+ExecStart=/usr/local/bin/webhooksms \
+    -c /etc/webhooksms/config.ini \
+    -l /var/log/webhooksms/webhook.log
+
+[Install]
+WantedBy=multi-user.target
