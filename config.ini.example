@@ -1,0 +1,51 @@
+listen_address = ":9999"
+
+[sms]
+    host = "localhost"
+    port = 2775
+    system_id = "smppclient1"
+    password = "password"
+
+[grafana]
+    enable = true
+    recipient = [ "+70123456789", "+79876543210" ]
+    name = "grafana"
+    user = "grafanauser"
+    password = "pass"
+    #	Title       string `json:"title"`
+    #	RuleID      int    `json:"ruleId"`
+    #	RuleName    string `json:"ruleName"`
+    #	RuleURL     string `json:"ruleUrl"`
+    #	State       string `json:"state"`
+    #	ImageURL    string `json:"imageUrl"`
+    #	Message     string `json:"message"`
+    #	EvalMatches []struct {
+    #		Metric string `json:"metric"`
+    #		Tags   map[string]string
+    #		Value int `json:"value"`
+    #	} `json:"evalMatches"
+    template = "Grafana {{.Title}}\n{{.RuleName}}: {{.State}}\n{{.Message}}\n{{range .EvalMatches}}{{.Metric}}={{.Value}}\n{{end}}"
+
+[prometheus]
+    enable = false
+    recipient = [ "+70123456789", "+79876543210" ]
+    name = "prometheus"
+    user = "prometheususer"
+    password = "pass"
+    #	Version     string `json:"version"`
+    #	GroupKey    string `json:"groupKey"`
+    #	Status      string `json:"status"`
+    #	Receiver    string `json:"receiver"`
+    #	GroupLabels map[string]string `json:"groupLabels"`
+    #	CommonLabels map[string]string `json:"commonLabels"`
+    #	CommonAnnotations map[string]string `json:"commonAnnotations"`
+    #	ExternalURL string `json:"externalURL"`
+    #	Alerts      []struct {
+    #		Status string `json:"status"`
+    #		Labels map[string]string `json:"labels"`
+    #		Annotations map[string]string `json:"annotations"`
+    #		StartsAt     string `json:"startsAt"`
+    #		EndsAt       string `json:"endsAt"`
+    #		GeneratorURL string `json:"generatorURL"`
+    #	} `json:"alerts"`
+    template = "{{.Status}} {{.Receiver}}"
