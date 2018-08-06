@@ -21,7 +21,7 @@ type grafanaType struct {
 	EvalMatches []struct {
 		Metric string            `json:"metric"`
 		Tags   map[string]string `json:"tags"`
-		Value  int               `json:"value"`
+		Value  float64           `json:"value"`
 	} `json:"evalMatches"`
 }
 

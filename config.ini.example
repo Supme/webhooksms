@@ -22,7 +22,7 @@ listen_address = ":9999"
     #	EvalMatches []struct {
     #		Metric string `json:"metric"`
     #		Tags   map[string]string
-    #		Value int `json:"value"`
+    #		Value  float64
     #	} `json:"evalMatches"
     template = "Grafana {{.Title}}\n{{.RuleName}}: {{.State}}\n{{.Message}}\n{{range .EvalMatches}}{{.Metric}}={{.Value}}\n{{end}}"
 
